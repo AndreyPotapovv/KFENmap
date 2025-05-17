@@ -1,20 +1,21 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import React, { useState } from "react";
 import Floor4 from "./Floor4";
 
 const FloorMapZones = () => {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState({});
 
   const handleSelect = async (zoneId) => {
     try {
       console.log("Зона выбрана:", zoneId);
-      const response = await fetch(`/api/locations/by-name/${zoneId}`);
+      const response = await fetch(`http://localhost:8000/locations/by-name/${zoneId}`);
       if (!response.ok) throw new Error("Не удалось получить данные");
       const data = await response.json();
       console.log("Полученные данные:", data);
       setSelected(data);
     } catch (error) {
       console.error("Ошибка при получении зоны:", error);
-      setSelected({ name: zoneId, description: "Нет данных", type: "неизвестно" });
+      setSelected({});
     }
   };
 
@@ -66,6 +67,16 @@ const FloorMapZones = () => {
           </div>
         </TransformComponent>
       </TransformWrapper>
+      <div className="bottom-info">
+        {selected && selected.name ? (
+          <div>
+            <h3>{selected.name}</h3>
+            <p>{selected.description}</p>
+          </div>
+        ) : (
+          <p>Нажмите на кабинет на карте, чтобы узнать больше</p>
+        )}
+      </div>
     </div>
   );
 };

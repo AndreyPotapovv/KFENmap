@@ -27,19 +27,7 @@ function App() {
         />
       </div>
 
-      <FloorMapZones locations={filtered} onSelect={setSelected} />
-
-      <div className="bottom-info">
-        {selected ? (
-          <div>
-            <h3>{selected.name}</h3>
-            <p>{selected.description}</p>
-            <small>Тип: {selected.type}</small>
-          </div>
-        ) : (
-          <p>Нажмите на кабинет на карте, чтобы узнать больше</p>
-        )}
-      </div>
+      <FloorMapZones locations={filtered} onSelect={setSelected} />     
     </div>
   );
 }

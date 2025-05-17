@@ -45,18 +45,29 @@ body {
   background: #eee;
 }
 
+.bottom-info,
+.bottom-info h3,
+.bottom-info small {
+  color: #242424 !important;
+}
+
+.bottom-info p {
+  color: #242424 !important;
+}
+
 .bottom-info {
+  height: 20%;
   color: #242424;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
   background: white;
   padding: 10px 20px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .zone {
