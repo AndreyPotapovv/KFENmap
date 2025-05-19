@@ -1,8 +1,9 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import React, { useState } from "react";
 import Floor4 from "./Floor4";
+import Floor3 from "./Floor3";
 
-const FloorMapZones = () => {
+const FloorMapZones = ({ floor }) => {
   const [selected, setSelected] = useState({});
 
   const handleSelect = async (zoneId) => {
@@ -17,6 +18,12 @@ const FloorMapZones = () => {
       console.error("Ошибка при получении зоны:", error);
       setSelected({});
     }
+  };
+
+  const renderFloor = () => {
+    if (floor === 3) return <Floor3 onSelect={handleSelect} />;
+    if (floor === 4) return <Floor4 onSelect={handleSelect} />;
+    return null;
   };
 
   return (
@@ -40,8 +47,8 @@ const FloorMapZones = () => {
           }}
         >
           <img
-            src="/floor4.jpg"
-            alt="Карта"
+            src={`/floor${floor}.jpg`}
+            alt={`Карта ${floor} этажа`}
             style={{
               width: "100%",
               height: "100%",
@@ -63,7 +70,8 @@ const FloorMapZones = () => {
               zIndex: 1,
             }}
           >
-            <Floor4 onSelect={handleSelect}/>
+            {renderFloor()}
+
           </div>
         </TransformComponent>
       </TransformWrapper>

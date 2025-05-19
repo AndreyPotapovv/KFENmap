@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import FloorMapZones from "./components/FloorMapZones";
+import FloorSelector from "./components/FloorSelector";
 import "./index.css";
 
 function App() {
+  const [floor, setFloor] = useState(4);
   const [locations, setLocations] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -18,6 +20,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="top-bar">
+        <FloorSelector currentFloor={floor} onChange={setFloor} />
         <button>☰</button>
         <input
           type="text"
@@ -27,7 +30,7 @@ function App() {
         />
       </div>
 
-      <FloorMapZones locations={filtered} onSelect={setSelected} />     
+      <FloorMapZones floor={floor} locations={filtered} onSelect={setSelected} />     
     </div>
   );
 }
