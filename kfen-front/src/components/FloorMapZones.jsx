@@ -3,26 +3,25 @@ import React, { useState } from "react";
 import Floor4 from "./Floor4";
 import Floor3 from "./Floor3";
 
-const FloorMapZones = ({ floor }) => {
-  const [selected, setSelected] = useState({});
+const FloorMapZones = ({ floor, selected, onSelect }) => {
+  const selectedZoneId = selected?.name;
 
   const handleSelect = async (zoneId) => {
     try {
-      console.log("Зона выбрана:", zoneId);
       const response = await fetch(`http://localhost:8000/locations/by-name/${zoneId}`);
       if (!response.ok) throw new Error("Не удалось получить данные");
       const data = await response.json();
       console.log("Полученные данные:", data);
-      setSelected(data);
+      onSelect(data);
     } catch (error) {
       console.error("Ошибка при получении зоны:", error);
-      setSelected({});
+      onSelect(null);
     }
   };
 
   const renderFloor = () => {
-    if (floor === 3) return <Floor3 onSelect={handleSelect} />;
-    if (floor === 4) return <Floor4 onSelect={handleSelect} />;
+    if (floor === 3) return <Floor3 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+    if (floor === 4) return <Floor4 onSelect={handleSelect} selectedId={selectedZoneId}/>;
     return null;
   };
 
@@ -76,7 +75,7 @@ const FloorMapZones = ({ floor }) => {
         </TransformComponent>
       </TransformWrapper>
       <div className="bottom-info">
-        {selected && selected.name ? (
+        {selected?.name ? (
           <div>
             <h3>{selected.name}</h3>
             <p>{selected.description}</p>

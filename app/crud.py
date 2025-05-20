@@ -16,4 +16,5 @@ def get_locations():
 
 def get_location_by_name(name: str):
     with get_session() as session:
-        return session.query(Location).filter(Location.name == name).first()
+        statement = select(Location).where(Location.name == name)
+        return session.exec(statement).first()

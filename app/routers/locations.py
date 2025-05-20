@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from app.models import Location
 from app.schemas import LocationCreate
 from app import crud
@@ -15,4 +15,7 @@ def list_locations():
 
 @router.get("/by-name/{name}", response_model=Location)
 def get_location_by_name(name: str):
-    return crud.get_location_by_name(name)
+    location = crud.get_location_by_name(name)
+    if not location:
+        raise HTTPException(status_code=404, detail="Аудитория не найдена")
+    return location
