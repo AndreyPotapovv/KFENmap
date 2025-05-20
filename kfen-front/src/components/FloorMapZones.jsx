@@ -1,10 +1,11 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Floor4 from "./Floor4";
 import Floor3 from "./Floor3";
 
 const FloorMapZones = ({ floor, selected, onSelect }) => {
   const selectedZoneId = selected?.name;
+  const transformRef = useRef(null);
 
   const handleSelect = async (zoneId) => {
     try {
@@ -13,11 +14,23 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
       const data = await response.json();
       console.log("Полученные данные:", data);
       onSelect(data);
+
     } catch (error) {
       console.error("Ошибка при получении зоны:", error);
       onSelect(null);
     }
   };
+
+  useEffect(() => {
+    if (!selected?.name) return;
+
+    setTimeout(() => {
+      const svgElement = document.getElementById(selected.name);
+      if (svgElement && transformRef.current) {
+        transformRef.current.zoomToElement(svgElement, 3);
+      }
+    }, 200);
+  }, [selected]);
 
   const renderFloor = () => {
     if (floor === 3) return <Floor3 onSelect={handleSelect} selectedId={selectedZoneId}/>;
@@ -28,6 +41,7 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
   return (
     <div className="map-area" style={{ width: "100%", height: "100%" }}>
       <TransformWrapper
+        ref={transformRef}
         options={{
           maxScale: 3,
           minScale: 0.5,

@@ -6,12 +6,18 @@ import "./index.css";
 
 function App() {
   const [floor, setFloor] = useState(4);
-  const [locations, setLocations] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [query, setQuery] = useState("");
   const handleSearchResult = (loc) => {
     setSelected(loc);
   };
+
+  useEffect(() => {
+    if (selected?.floor && selected.floor !== floor) {
+      setTimeout(() => {
+      setFloor(selected.floor);
+    }, 100)
+  }
+  }, [selected]);
 
   return (
     <div className="app-container">
