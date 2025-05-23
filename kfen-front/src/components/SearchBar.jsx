@@ -9,7 +9,7 @@ const SearchBar = ({ onFound }) => {
     if (!trimmedQuery) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/locations/by-name/${trimmedQuery}`);
+      const res = await fetch(`http://localhost:8000/locations/search/${encodeURIComponent(trimmedQuery)}`);
       if (!res.ok) throw new Error("Аудитория не найдена");
       const data = await res.json();
 
@@ -18,7 +18,7 @@ const SearchBar = ({ onFound }) => {
         return;
       }
 
-      onFound(data); // передаём найденный объект в App
+      onFound(data);
     } catch (err) {
       console.error(err);
       alert("Ошибка при поиске аудитории");

@@ -44,7 +44,7 @@ const Floor3 = ({ selectedId ,onSelect }) => {
     <path id="351" d="M1463 825L1543.5 808L1557.5 895L1487.5 909L1463 825Z" fill="#692EB2" fillOpacity={selectedId === "351" ? 0.6 : 0.25} onClick={() => onSelect('351')} />
     <path id="353" d="M1384 847L1460.5 825.5L1485.41 908.289L1417 927.5L1384 847Z" fill="#692EB2" fillOpacity={selectedId === "353" ? 0.6 : 0.25} onClick={() => onSelect('353')} />
     <path id="353a" d="M1322 869L1382.5 847.5L1415 928.5L1354.5 948L1322 869Z" fill="#692EB2" fillOpacity={selectedId === "353a" ? 0.6 : 0.25} onClick={() => onSelect('353a')} />
-    <rect id="328_2" x="1579" y="416" width="111" height="128" fill="#692EB2" fillOpacity={selectedId === "328_2" ? 0.6 : 0.25} onClick={() => onSelect('328_2')} />
+    <rect id="326" x="1579" y="416" width="111" height="128" fill="#692EB2" fillOpacity={selectedId === "326" ? 0.6 : 0.25} onClick={() => onSelect('326')} />
     <rect id="324" x="1691" y="415" width="114" height="128" fill="#692EB2" fillOpacity={selectedId === "324" ? 0.6 : 0.25} onClick={() => onSelect('324')} />
     <rect id="322" x="1806" y="463" width="75" height="81" fill="#692EB2" fillOpacity={selectedId === "322" ? 0.6 : 0.25} onClick={() => onSelect('322')} />
     <rect id="345" x="1703" y="790" width="44" height="92" fill="#692EB2" fillOpacity={selectedId === "345" ? 0.6 : 0.25} onClick={() => onSelect('345')} />

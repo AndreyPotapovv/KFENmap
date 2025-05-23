@@ -18,3 +18,10 @@ def get_location_by_name(name: str):
     with get_session() as session:
         statement = select(Location).where(Location.name == name)
         return session.exec(statement).first()
+    
+def search_location(query: str):
+    with Session(engine) as session:
+        statement = select(Location).where(
+            Location.name.ilike(f"%{query}%") | Location.description.ilike(f"%{query}%")
+        )
+        return session.exec(statement).first()

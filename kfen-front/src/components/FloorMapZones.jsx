@@ -1,7 +1,13 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import React, { useRef, useState, useEffect } from "react";
+import Floor7 from "./Floor7";
+import Floor6 from "./Floor6";
+import Floor5 from "./Floor5";
 import Floor4 from "./Floor4";
 import Floor3 from "./Floor3";
+import Floor2 from "./Floor2";
+import Floor1 from "./Floor1";
+
 
 const FloorMapZones = ({ floor, selected, onSelect }) => {
   const selectedZoneId = selected?.name;
@@ -9,7 +15,7 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
 
   const handleSelect = async (zoneId) => {
     try {
-      const response = await fetch(`http://localhost:8000/locations/by-name/${zoneId}`);
+      const response = await fetch(`http://localhost:8000/locations/search/${zoneId}`);
       if (!response.ok) throw new Error("Не удалось получить данные");
       const data = await response.json();
       console.log("Полученные данные:", data);
@@ -33,8 +39,14 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
   }, [selected]);
 
   const renderFloor = () => {
+    if (floor === 1) return <Floor1 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+    if (floor === 2) return <Floor2 onSelect={handleSelect} selectedId={selectedZoneId}/>;
     if (floor === 3) return <Floor3 onSelect={handleSelect} selectedId={selectedZoneId}/>;
     if (floor === 4) return <Floor4 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+    if (floor === 5) return <Floor5 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+    if (floor === 6) return <Floor6 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+    if (floor === 7) return <Floor7 onSelect={handleSelect} selectedId={selectedZoneId}/>;
+
     return null;
   };
 
@@ -48,7 +60,7 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
           limitToBounds: false,
         }}
         pan={{ velocityDisabled: true }}
-        pinch={{ step: 5 }}
+        pinch={{ step: 2 }}
         doubleClick={{ disabled: true }}
       >
         <TransformComponent
