@@ -22,11 +22,16 @@ function App() {
   return (
     <div className="app-container">
       <div className="top-bar">
+        <div className="top-row">
+          <button className="menu-button">☰</button>
+          <div className="search-wrapper">
+            <SearchBar onFound={handleSearchResult} />
+          </div>
+        </div>
         <FloorSelector currentFloor={floor} onChange={setFloor} />
-        <button>☰</button>
-        <SearchBar onFound={handleSearchResult}/>
       </div>
-
+      <div>
+      </div>
       <FloorMapZones floor={floor} onSelect={setSelected} selected={selected}/>     
     </div>
   );

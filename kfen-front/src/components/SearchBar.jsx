@@ -26,15 +26,15 @@ const SearchBar = ({ onFound }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} style={{ display: "flex", gap: "10px" }}>
+    <form onSubmit={handleSearch} style={{ display: "flex", gap: "3%"}}>
       <input
         type="text"
         placeholder="Номер аудитории"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        style={{ padding: "6px", fontSize: "14px", flex: "1" }}
+        style={{ paddingLeft: "3%", fontSize: "14px", flex: "1" }}
       />
-      <button type="submit">Найти</button>
+      <button type="submit">🔎︎</button>
     </form>
   );
 };

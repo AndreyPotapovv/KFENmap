@@ -27,14 +27,44 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
-  padding: 10px;
   background: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  padding: 15px;
+  gap: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
+
+.top-row {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+  gap: 2%;
+}
+
+.search-wrapper {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.search-wrapper form {
+  display: flex;
+  width: 100%;
+}
+
+.search-wrapper input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
 
 .map-area {
   position: absolute;
@@ -42,7 +72,7 @@ body {
   bottom: 120px;
   left: 0;
   right: 0;
-  background: #eee;
+  background: #ffffff;
 }
 
 .bottom-info,
@@ -56,14 +86,14 @@ body {
 }
 
 .bottom-info {
-  height: 20%;
+  height: 22%;
   color: #242424;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background: white;
-  padding: 10px 20px;
+  padding: 0% 5%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
@@ -139,10 +169,35 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+
+.floor-selector-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
 }
+
+.floor-selector-horizontal button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.floor-selector-horizontal button:hover {
+  background-color: #d0d0d0;
+}
+
+.floor-selector-horizontal button.active {
+  background-color: #3a7cd3;
+  color: white;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
