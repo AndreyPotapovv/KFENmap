@@ -1,12 +1,12 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import React, { useRef, useState, useEffect } from "react";
-import Floor7 from "./Floor7";
-import Floor6 from "./Floor6";
-import Floor5 from "./Floor5";
-import Floor4 from "./Floor4";
-import Floor3 from "./Floor3";
-import Floor2 from "./Floor2";
-import Floor1 from "./Floor1";
+import Floor7 from "./Floors/Floor7";
+import Floor6 from "./Floors/Floor6";
+import Floor5 from "./Floors/Floor5";
+import Floor4 from "./Floors/Floor4";
+import Floor3 from "./Floors/Floor3";
+import Floor2 from "./Floors/Floor2";
+import Floor1 from "./Floors/Floor1";
 
 
 const FloorMapZones = ({ floor, selected, onSelect }) => {

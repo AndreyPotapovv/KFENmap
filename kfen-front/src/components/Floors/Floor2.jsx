@@ -20,7 +20,7 @@ const Floor2 = ({ selectedId ,onSelect }) => {
     <rect id="284" fillOpacity={selectedId === "284" ? 0.6 : 0.25} x="48" y="546" width="66" height="128" fill="#003CFF" onClick={() => onSelect('284')} />
     <rect id="290" fillOpacity={selectedId === "290" ? 0.6 : 0.25} x="267" y="546" width="94" height="80" fill="#003CFF" onClick={() => onSelect('290')} />
     <rect id="292" fillOpacity={selectedId === "292" ? 0.6 : 0.25} x="363" y="546" width="94" height="80" fill="#003CFF" onClick={() => onSelect('292')} />
-    <rect id="Большой спортивный зал" fillOpacity={selectedId === "Большой спортивный зал" ? 0.6 : 0.25} x="48" y="324" width="499" height="220" fill="#003CFF" onClick={() => onSelect('Большой спортивный зал')} />
+    <rect id="Большой спортзал" fillOpacity={selectedId === "Большой спортзал" ? 0.6 : 0.25} x="48" y="324" width="499" height="220" fill="#003CFF" onClick={() => onSelect('Большой спортзал')} />
     <rect id="294" fillOpacity={selectedId === "294" ? 0.6 : 0.25} x="457" y="546" width="90" height="80" fill="#003CFF" onClick={() => onSelect('294')} />
     <path id="262" fillOpacity={selectedId === "262" ? 0.6 : 0.25} d="M492 746H550L545 770.5L536.5 806H492V746Z" fill="#003CFF" onClick={() => onSelect('262')} />
     <path id="278" fillOpacity={selectedId === "278" ? 0.6 : 0.25} d="M48 746.5H179.5V771V805.5H59L53.5 778.5L48 746.5Z" fill="#003CFF" onClick={() => onSelect('278')} />
@@ -28,7 +28,7 @@ const Floor2 = ({ selectedId ,onSelect }) => {
     <path id="274" fillOpacity={selectedId === "274" ? 0.6 : 0.25} d="M69.5 855.5H179V873.763V976.5L119 935L82.5 877L69.5 855.5Z" fill="#003CFF" onClick={() => onSelect('274')} />
     <rect id="280" fillOpacity={selectedId === "280" ? 0.6 : 0.25} x="48" y="674" width="131" height="70" fill="#003CFF" onClick={() => onSelect('280')} />
     <rect id="266" fillOpacity={selectedId === "266" ? 0.6 : 0.25} x="413" y="808" width="39" height="95" fill="#003CFF" onClick={() => onSelect('266')} />
-    <rect id="Малый зал" fillOpacity={selectedId === "Малый зал" ? 0.6 : 0.25} x="220" y="746" width="192" height="246" fill="#003CFF" onClick={() => onSelect('Малый зал')} />
+    <rect id="Малый спортзал" fillOpacity={selectedId === "Малый спортзал" ? 0.6 : 0.25} x="220" y="746" width="192" height="246" fill="#003CFF" onClick={() => onSelect('Малый спортзал')} />
     <path id="260" fillOpacity={selectedId === "260" ? 0.6 : 0.25} d="M492 808H537L530.963 845.882L492 920V900.235V808Z" fill="#003CFF" onClick={() => onSelect('260')} />
     <rect id="256" fillOpacity={selectedId === "256" ? 0.6 : 0.25} x="547" y="437" width="67" height="107" fill="#5EB92D" onClick={() => onSelect('256')} />
     <rect id="254" fillOpacity={selectedId === "254" ? 0.6 : 0.25} x="616" y="437" width="60" height="107" fill="#5EB92D" onClick={() => onSelect('254')} />

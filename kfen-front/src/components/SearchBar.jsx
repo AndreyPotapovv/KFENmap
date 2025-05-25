@@ -18,7 +18,7 @@ const SearchBar = ({ onFound }) => {
         return;
       }
 
-      onFound(data);
+      onFound(trimmedQuery);
     } catch (err) {
       console.error(err);
       alert("Ошибка при поиске аудитории");

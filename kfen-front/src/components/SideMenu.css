@@ -1,0 +1,79 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 240px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+
+  overflow-y: auto;        /* ← Добавить это */
+  overscroll-behavior: contain; /* ← Чтобы не скроллился фон на мобилках */
+}
+
+.side-menu h2 {
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.side-menu h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.side-menu .logo {
+  display: block;
+  max-width: 80px;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.institute-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #3a7cd3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.institute-btn:hover {
+  background-color: #2f6bb2;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.submenu li {
+  padding: 6px;
+  cursor: pointer;
+  color: #333;
+}
+
+.submenu li:hover {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
