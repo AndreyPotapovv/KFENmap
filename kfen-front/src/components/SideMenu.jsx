@@ -18,8 +18,8 @@ const SideMenu = ({ isOpen, onClose, onSelectLocation }) => {
   };
 
   const handleClick = (loc) => {
-    onSelectLocation(loc); // вызывает поиск
-    onClose();             // закрывает меню
+    onSelectLocation(loc);
+    onClose();
   };
 
   return (

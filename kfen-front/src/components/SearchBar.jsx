@@ -10,6 +10,11 @@ const SearchBar = ({ onFound }) => {
 
     try {
       const res = await fetch(`http://localhost:8000/locations/search/${encodeURIComponent(trimmedQuery)}`);
+    //   const res = await fetch(`https://9249-147-45-42-42.ngrok-free.app/locations/search/${encodeURIComponent(trimmedQuery)}`, {
+    //   headers: {
+    //     "ngrok-skip-browser-warning": "true"
+    //   }
+    // });
       if (!res.ok) throw new Error("Аудитория не найдена");
       const data = await res.json();
 

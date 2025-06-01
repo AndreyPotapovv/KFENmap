@@ -1,4 +1,5 @@
 from sqlmodel import Session, select
+from app.schemas import LocationUpdate
 from app.models import Location
 from app.database import engine
 from app.database import get_session
@@ -9,6 +10,18 @@ def create_location(location: Location):
         session.commit()
         session.refresh(location)
         return location
+    
+def update_location(location_id: int, loc_data: LocationUpdate):
+    with Session(engine) as session:
+        db_loc = session.get(Location, location_id)
+        if not db_loc:
+            return None
+        for key, value in loc_data.dict(exclude_unset=True).items():
+            setattr(db_loc, key, value)
+        session.add(db_loc)
+        session.commit()
+        session.refresh(db_loc)
+        return db_loc
 
 def get_locations():
     with Session(engine) as session:

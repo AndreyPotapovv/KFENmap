@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+
 import FloorMapZones from "./components/FloorMapZones";
 import FloorSelector from "./components/FloorSelector";
 import SearchBar from "./components/SearchBar";
 import SideMenu from "./components/SideMenu";
+
 import "./index.css";
 import "./components/SideMenu.css";
 
@@ -13,7 +15,14 @@ function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const handleSearchResult = async (query) => {
     try {
-      const res = await fetch(`http://localhost:8000/locations/search/${encodeURIComponent(query)}`);
+    const res = await fetch(`http://localhost:8000/locations/search/${encodeURIComponent(query)}`);
+
+    //   const res = await fetch(`https://9249-147-45-42-42.ngrok-free.app/locations/search/${encodeURIComponent(query)}`, {
+    //   headers: {
+    //     "ngrok-skip-browser-warning": "true"
+    //   }
+    // });
+
       if (!res.ok) throw new Error("Не найдено");
       const data = await res.json();
       setSelected(data);
@@ -61,5 +70,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

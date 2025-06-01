@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import locations
+from app.routers import locations, admin
 from app.database import create_db_and_tables
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -10,6 +10,7 @@ def on_startup():
     create_db_and_tables()
 
 app.include_router(locations.router, prefix="/locations", tags=["Locations"])
+app.include_router(admin.admin_router, prefix="/admin", tags=["Admin"])
 
 app.add_middleware(
     CORSMiddleware,
