@@ -15,7 +15,7 @@ const FloorMapZones = ({ floor, selected, onSelect }) => {
 
   const handleSelect = async (zoneId) => {
     try {
-    const response = await fetch(`http://localhost:8000/locations/search/${zoneId}`);
+    const response = await fetch(`http://185.42.165.142/api/locations/search/${zoneId}`);
 
     //   const response = await fetch(`https://9249-147-45-42-42.ngrok-free.app/locations/search/${zoneId}`, {
     //   headers: {

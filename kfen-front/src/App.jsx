@@ -15,7 +15,7 @@ function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const handleSearchResult = async (query) => {
     try {
-    const res = await fetch(`http://localhost:8000/locations/search/${encodeURIComponent(query)}`);
+    const res = await fetch(`http://185.42.165.142/api/locations/search/${encodeURIComponent(query)}`);
 
     //   const res = await fetch(`https://9249-147-45-42-42.ngrok-free.app/locations/search/${encodeURIComponent(query)}`, {
     //   headers: {

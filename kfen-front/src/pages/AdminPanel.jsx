@@ -4,7 +4,7 @@ import Login from "./Login";
 import { basicAuthHeader } from "../../auth";
 
 
-const API_URL = "http://localhost:8000";
+const API_URL = "http://185.42.165.142/api";
 
 const AdminPage = () => {
   const [editingLocation, setEditingLocation] = useState(null);
