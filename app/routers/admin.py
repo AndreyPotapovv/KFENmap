@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from sqlmodel import Session, select
-from app.models import Location
-from app.schemas import LocationCreate, LocationUpdate
-from app.database import engine
+from models import Location
+from schemas import LocationCreate, LocationUpdate
+from database import engine
 import secrets
 import os
 from dotenv import load_dotenv

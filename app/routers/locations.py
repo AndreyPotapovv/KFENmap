@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
-from app.models import Location
-from app.schemas import LocationCreate
-from app import crud
+from models import Location
+from schemas import LocationCreate
+import crud
 
 router = APIRouter()
 

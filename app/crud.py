@@ -1,8 +1,8 @@
 from sqlmodel import Session, select
-from app.schemas import LocationUpdate
-from app.models import Location
-from app.database import engine
-from app.database import get_session
+from schemas import LocationUpdate
+from models import Location
+from database import engine
+from database import get_session
 
 def create_location(location: Location):
     with Session(engine) as session:
