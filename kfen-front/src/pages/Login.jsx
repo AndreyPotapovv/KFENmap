@@ -1,4 +1,3 @@
-// pages/Login.jsx
 import { useState } from "react";
 
 const Login = ({ onLogin }) => {
@@ -14,6 +13,7 @@ const Login = ({ onLogin }) => {
     <div style={{ padding: "20px" }}>
       <h2>Вход в админку</h2>
       <form onSubmit={handleSubmit}>
+        <div>
         <input
           type="text"
           placeholder="Логин"
@@ -21,6 +21,8 @@ const Login = ({ onLogin }) => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+        </div>
+        <div style={{ paddingTop: "10px"}}>
         <input
           type="password"
           placeholder="Пароль"
@@ -28,6 +30,7 @@ const Login = ({ onLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        </div>
         <button type="submit">Войти</button>
       </form>
     </div>

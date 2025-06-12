@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from sqlmodel import Session, select
 from app.models import Location
@@ -44,3 +44,12 @@ def update_location(location_id: int, loc: LocationUpdate, user: str = Depends(a
         session.commit()
         session.refresh(location)
         return location
+    
+@admin_router.delete("/locations/{location_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_location(location_id: int, user: str = Depends(admin_auth)):
+    with Session(engine) as session:
+        location = session.get(Location, location_id)
+        if not location:
+            raise HTTPException(status_code=404, detail="Локация не найдена")
+        session.delete(location)
+        session.commit()

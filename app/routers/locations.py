@@ -5,9 +5,9 @@ from app import crud
 
 router = APIRouter()
 
-@router.post("/", response_model=Location)
-def add_location(loc: LocationCreate):
-    return crud.create_location(Location(**loc.dict()))
+# @router.post("/", response_model=Location)
+# def add_location(loc: LocationCreate):
+#     return crud.create_location(Location(**loc.dict()))
 
 @router.get("/", response_model=list[Location])
 def list_locations():

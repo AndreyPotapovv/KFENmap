@@ -9,7 +9,7 @@ const API_URL = "http://localhost:8000";
 const AdminPage = () => {
   const [editingLocation, setEditingLocation] = useState(null);
   const [locations, setLocations] = useState([]);
-  const [form, setForm] = useState({ name: "", description: "", floor: 1 });
+  const [form, setForm] = useState({ name: "", type: "", description: "", floor: 1 });
   const [search, setSearch] = useState("");
   const [auth, setAuth] = useState(null);
 
@@ -21,7 +21,7 @@ const AdminPage = () => {
   useEffect(() => {
     if (!auth) return;
     fetch(`${API_URL}/admin/locations`, {
-      headers: basicAuthHeader(),
+      headers: {...basicAuthHeader(),}
     })
       .then((res) => {
         if (!res.ok) throw new Error("Auth failed");
@@ -70,6 +70,24 @@ const AdminPage = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+  if (!window.confirm("Удалить эту локацию?")) return;
+
+  try {
+    await fetch(`${API_URL}/admin/locations/${id}`, {
+      method: "DELETE",
+      headers: {
+        ...basicAuthHeader(),
+      },
+    });
+    setLocations((prev) => prev.filter((loc) => loc.id !== id));
+  } catch (error) {
+    console.error("Ошибка при удалении:", error);
+    alert("Не удалось удалить локацию");
+  }
+};
+
+
   const filteredLocations = locations.filter(loc =>
     (loc.name?.toLowerCase() || "").includes(search.toLowerCase()) ||
     (loc.description?.toLowerCase() || "").includes(search.toLowerCase())
@@ -85,6 +103,14 @@ const AdminPage = () => {
           name="name"
           value={form.name}
           placeholder="Название"
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="type"
+          value={form.type}
+          placeholder="Тип"
           onChange={handleInputChange}
           required
         />
@@ -132,6 +158,7 @@ const AdminPage = () => {
               <td>{loc.floor}</td>
               <td>
                 <button onClick={() => setEditingLocation(loc)}>✏️ Редактировать</button>
+                <button onClick={() => handleDelete(loc.id)}>🗑️ Удалить</button>
               </td>
             </tr>
           ))}
