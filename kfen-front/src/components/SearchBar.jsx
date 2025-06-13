@@ -37,7 +37,7 @@ const SearchBar = ({ onFound }) => {
         placeholder="Номер аудитории"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        style={{ paddingLeft: "3%", fontSize: "14px", flex: "1" }}
+        style={{ paddingLeft: "3%", fontSize: "16px", flex: "1" }}
       />
       <button type="submit">🔎︎</button>
     </form>

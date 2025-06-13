@@ -61,7 +61,7 @@ html, body {
 .search-wrapper input[type="text"] {
   flex: 1;
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ccc;
   border-right: none;
