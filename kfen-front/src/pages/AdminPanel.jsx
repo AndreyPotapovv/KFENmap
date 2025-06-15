@@ -40,7 +40,7 @@ const AdminPage = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/locations/`, {
+      const res = await fetch(`${API_URL}/admin/locations/`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...basicAuthHeader() },
         body: JSON.stringify(form),
