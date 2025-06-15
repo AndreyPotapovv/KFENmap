@@ -48,6 +48,7 @@ const AdminPage = () => {
       const newLoc = await res.json();
       setLocations((prev) => [...prev, newLoc]);
       setForm({ name: "", description: "", floor: 1 });
+      alert("Локация успешно добавлена.")
     } catch (error) {
       console.error("Ошибка при добавлении:", error);
     }
